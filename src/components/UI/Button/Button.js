@@ -27,13 +27,18 @@
 // `;
 
 import styles from './Button.module.css';
+
 const Button = (props) => {
   let valid = props.isValid;
   return (
-    <button type={props.type} style={{background : valid ? '#FF7276' : '#ac0e77'}} className={styles.button} onClick={props.onClick}>
+    <button
+      type={props.type}
+      className={`${styles.button} ${valid && styles.invalid}`}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
-  )
+  );
 }
 
 export default Button;
